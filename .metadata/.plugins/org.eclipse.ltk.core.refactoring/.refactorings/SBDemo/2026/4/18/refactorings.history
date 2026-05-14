@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.app.odel.response&apos; to &apos;com.app.model.response&apos;&#x0D;&#x0A;- Original project: &apos;SBDemo&apos;&#x0D;&#x0A;- Original element: &apos;SBDemo/src/main/java/com.app.odel.response&apos;&#x0D;&#x0A;- Renamed element: &apos;SBDemo/src/main/java/com.app.model.response&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.app.odel.response&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.app.odel.response" name="com.app.model.response" qualified="false" references="true" stamp="1777542411753" textual="false" version="1.0"/>
+</session>

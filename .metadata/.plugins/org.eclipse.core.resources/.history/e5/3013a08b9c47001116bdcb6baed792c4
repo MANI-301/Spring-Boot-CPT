@@ -1,0 +1,52 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.service.annotation.GetExchange;
+
+import com.app.Coach;
+
+@RestController
+@RequestMapping("/api")
+
+public class DemoRestController {
+	
+	@Autowired
+	Coach theCoach;
+	
+//	public DemoRestController() {
+//		System.out.println("In default restcount");
+//	}
+	
+	//@AUtowired
+	
+	public DemoRestController(@Qualifier("swinCoach") Coach theCoach) {
+		super();
+		System.out.println("In parameterized restcount");
+		this.theCoach=theCoach;
+	}
+	
+	public Coach getTheCoach() {
+		return theCoach;
+	}
+	
+	//@autowired
+	public void setTheCoach(@Qualifier("tennisCoach") Coach thCoach) {
+		System.out.println("in setter");
+		this.theCoach=thCoach;
+	}
+	
+	//http://localhost:8080/api/workout
+	@GetMapping("/workout")
+	public String dailyWorkout() {
+		return theCoach.getDailyWorkout();
+	}
+
+}
+
+	
+
+

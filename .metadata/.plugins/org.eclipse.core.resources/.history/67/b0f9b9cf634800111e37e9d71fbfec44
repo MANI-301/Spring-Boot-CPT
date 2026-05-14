@@ -1,0 +1,21 @@
+package com.app.dao;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.app.entity.Employee;
+
+@Repository
+public interface EmployeeDAO  extends JpaRepository<Employee,Integer>{
+
+//	List<Employee> findByName(String name);
+
+	List<Employee> findByFirstName(String name);
+
+	//findByFirstNameAndEmail(String name,String email);
+	//findByFirstNameIgnoreCase();
+
+}

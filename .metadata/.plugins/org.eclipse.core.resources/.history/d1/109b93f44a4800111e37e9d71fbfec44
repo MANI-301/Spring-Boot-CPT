@@ -1,0 +1,47 @@
+package com.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.entity.Employee;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService{
+
+	@Autowired
+	private Employee employeeDAO;
+	
+	@Override
+	public List<Employee> findAll() {
+		
+		return null;
+	}
+
+	@Override
+	public Employee findById(int theId) {
+		
+		return null;
+	}
+
+	@Override
+	public void save(Employee theEmployee) {
+		
+		employeeDAO.s;
+		
+	}
+
+	@Override
+	public void deleteById(int theId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getEmployeeCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api")
+public class DemoRestController {
+	
+	@Autowired
+	Coach theCoach;
+
+	public DemoRestController() {
+		System.out.println("Default rest Count");
+	}
+
+	public DemoRestController(Coach theCoach) {
+		super();
+		System.out.println("In Paramerized restCount");
+		this.theCoach = theCoach;
+	}
+	
+	
+	
+	
+
+}
