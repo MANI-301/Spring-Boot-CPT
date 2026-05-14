@@ -1,0 +1,82 @@
+package com.app.service;
+
+import com.app.dao.EmployeeDAO;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.entity.Employee;
+
+import jakarta.transaction.Transactional;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService{
+
+	
+	@Autowired
+	private EmployeeDAO employeeDAO;
+
+	EmployeeServiceImpl(EmployeeDAO employeeDAO_1) {
+		this.employeeDAO = employeeDAO_1;
+	}
+	
+	@Override
+	public List<Employee> findAll() {
+		
+		return employeeDAO.findAll();
+	}
+
+	//http://localhost:8080/api/employees/5
+	@Override
+	public Employee findById(int theId) {
+		Employee e;
+		try {
+			e= employeeDAO.findById(theId).get();
+		}catch(Exception e1){
+			
+			return null;
+		}
+		return e;
+	}
+
+	@Override
+	public void save(Employee theEmployee) {
+		
+		employeeDAO.save(theEmployee);
+		
+	}
+
+	@Override
+	public void deleteById(int theId) {
+		// TODO Auto-generated method stub
+		
+		 employeeDAO.deleteById(theId);;
+		
+	}
+
+	@Override
+	public long getEmployeeCount() {
+		// TODO Auto-generated method stub
+		return employeeDAO.count();
+	}
+	
+	@Override
+	public List<Employee> findByFirstName(String name) {
+	    // TODO Auto-generated method stub
+	    return employeeDAO.findByFirstName(name);
+	}
+
+	@Override
+	@Transactional
+	public String updateFirstName(int id, String fname) {
+	    int i = employeeDAO.updateFirstName(id, fname);
+	    
+	    if (i > 0) {
+	        return "Successfully updated first name for employee ID: " + id;
+	    } else {
+	        return "Employee not found with ID: " + id;
+	    }
+	}
+
+}
