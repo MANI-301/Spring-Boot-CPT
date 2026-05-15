@@ -1,0 +1,87 @@
+<<<<<<< HEAD
+package com.app;
+
+
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.model.response.UserRest;
+
+@RestController
+@RequestMapping("/users")
+public class UserRestController {
+
+    //http://localhost:8080/users/111
+    @GetMapping(path = "/{userId}")
+    public String getUser(@PathVariable String userId)
+    {
+        return "User ID: " + userId;
+    }
+  
+  //http://localhost:80801/api?uname=admin&pwd=admin123
+  //Reading Query String from Request parameters
+  //http://localhost:8081/users?page=12&limit=10
+  @GetMapping
+  public String getUser(@RequestParam(value="page",defaultValue="11") int page,
+  @RequestParam(required = false) String limit) {
+
+  return "Get users was called with page: "+page+" Limit: "+limit;
+  }
+  
+//returning Object as JSON
+@GetMapping(path = "user/{userId}")
+public UserRest getUser1(@PathVariable String userId) {
+
+UserRest returnValue = new UserRest();
+returnValue.setFirstName("Rahul");
+returnValue.setLastName("Pawar");
+returnValue.setEmail("rahul@gmail.com");
+returnValue.setUserId(userId);
+return returnValue;
+}
+
+  
+}
+
+=======
+package com.app;
+
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserRestController {
+	
+	@GetMapping("/getUser")
+	public String getUser() {
+		return "Get user was called ";
+		
+	}
+	
+	@PostMapping()
+	public String postUser() {
+		return "Post user was called ";
+	}
+	
+
+	@PutMapping()
+	public String putUser() {
+		return "Put user was called ";
+	}
+	
+	@DeleteMapping()
+	public String deleteUser() {
+		return "Delete user was called ";
+	}
+
+}
+>>>>>>> 344e6dc9d04f8b1c0d13c980ae4723531d292bad

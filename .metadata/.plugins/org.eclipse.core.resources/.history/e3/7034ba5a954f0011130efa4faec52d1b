@@ -1,0 +1,8 @@
+spring.application.name=SBDemo
+<<<<<<< HEAD
+server.port=8081
+#server.servlet.context-path=/myapp
+trainer.name=Mayuri
+trainer.course=SpringBoot
+=======
+>>>>>>> 344e6dc9d04f8b1c0d13c980ae4723531d292bad
